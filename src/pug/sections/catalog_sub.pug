@@ -1,0 +1,11 @@
+section.catalog 
+  h2.hidden Каталог
+  - let catalogList = ["Сливочное с апельсиновым джемом и цитрусовой стружкой", "Сливочно-кофейное с кусочками шоколада", "Сливочно-клубничное с присыпкой из белого шоколада", "Сливочное крем-брюле с карамельной подливкой"]; 
+  ul.catalog__list
+    each item in catalogList
+      li.catalog__card.quarter  
+        img.hit(src=require("../../images/hit.svg"), width="61", height="61", alt="Хит")
+        img(src=require(`../../images/ice${catalogList.indexOf(item)+1}.jpg`), width="267", height="267", alt="")
+        p.price 310 &#8381;
+          span /кг 
+        h3.catalog__title= item

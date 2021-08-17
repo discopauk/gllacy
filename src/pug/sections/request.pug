@@ -1,0 +1,16 @@
+section.request
+  h2.hidden Свяжитесь с нами
+  form
+    fieldset
+      legend Мы обязательно вам ответим!
+      ul 
+        li 
+          label(for="req_name") Имя Фамилия
+          input#req_name(placeholder="Имя Фамилия")
+        li 
+          label(for="req_email") E-mail
+          input#req_email(type="email", placeholder="email@example.com")
+        li 
+          label(for="req_message") Сообщение
+          textarea#req_message(cols="30", rows="10", placeholder="В свободной форме") 
+    button.btn Отправить

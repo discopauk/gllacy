@@ -1,0 +1,46 @@
+.filters
+  form
+    p
+      label(for="sort")  Сортировка:
+      select#sort
+        option(value="popular") по популярности
+        option(value="cheap") сначала недорогие
+        option(value="expensive") сначала дорогие
+        option(value="fatness") по жирности
+    p 
+      label(for="price")  Цена
+      input#price(type="range", min="0", max="1000", step="100")
+    fieldset  
+      legend Жирность
+      ul  
+        li
+          input#zero(type="radio", name="fatness")
+          label(for="zero") 0%
+        li 
+          input#toTen(type="radio", name="fatness")
+          label(for="toTen") до 10%
+        li 
+          input#toThirty(type="radio", name="fatness")
+          label(for="toThirty") до 30%
+        li 
+          input#upThirty(type="radio", name="fatness")
+          label(for="upThirty") выше 30%
+    fieldset 
+      legend Наполнители
+      ul
+        li 
+          input#choko(type="checkbox", name="topping") 
+          label(for="choko") шоколадные
+        li 
+          input#sugar(type="checkbox", name="topping") 
+          label(for="sugar") сахарние присыпки
+        li 
+          input#fruit(type="checkbox", name="topping") 
+          label(for="fruit") фрукты
+        li 
+          input#syrop(type="checkbox", name="topping") 
+          label(for="syrop") сиропы
+        li 
+          input#jam(type="checkbox", name="topping") 
+          label(for="jam") джемы  
+    button.btn Применить

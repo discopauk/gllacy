@@ -1,0 +1,15 @@
+button.login Вход
+.login__wrap
+  form.login__form(action="submit")
+    fieldset
+      ul
+        li
+          label.hidden(for="email") 
+          input#email(type="email", placeholder="email@example.com")
+        li 
+          label.hidden(for="password") 
+          input#password(type="password", placeholder="password")
+    button.btn Войти
+  .login__info
+    a(href="#") Забыли пароль?
+    a(href="№") Новая регистрация
