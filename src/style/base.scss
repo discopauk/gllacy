@@ -1,0 +1,146 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+html {
+  background-color: $teal;
+}
+body {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  color: $text;
+  font: {
+    family: "Roboto", sans-serif;
+    size: 16px;
+    weight: 400;
+  }
+  line-height: 1.38;
+  letter-spacing: normal;
+  -webkit-text-size-adjust: 100%;
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+address {
+  font: {
+    weight: 700;
+    size: 1.2rem;
+    style: normal;
+  }
+}
+ul, li {
+  list-style-type: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  display: flex;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+  width: max-content;
+}
+a[href^="tel:"] {
+  font: {
+    weight: 700;
+    size: 1.375rem;
+  }
+}
+input, textarea {
+  padding: 11px 16px;
+  width: 100%;
+  border: 1px solid $grey;
+  border-radius: 8px;
+  font: inherit;
+}
+textarea {
+  resize: none;
+}
+fieldset {
+  margin-bottom: 16px;
+  li + li {
+    margin-top: 17px;
+  }
+}
+section {
+  margin-top: 50px;
+}
+
+%cover {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+%grid {
+  display: grid;
+  grid: {
+    gap: 25px;
+  }
+  align-items: center;
+  justify-items: center;
+  @include mobile-only {
+    grid-template-columns: 1fr;
+  }
+}
+%grid-2 {
+  @extend %grid;
+  grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+}
+%grid-4 {
+  @extend %grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+}
+%btn_g {
+  padding: 1rem 2.6rem;
+  text-shadow: 0px 2px 5px $text_sh;
+  line-height: 1.38;
+  text-align: center;
+  font: {
+    size: 2rem;
+    weight: 700;
+  }
+  border-radius: 25%;
+}
+%text-large {
+  font: {
+    size: 3.75rem;
+    weight: 700;
+  }
+  line-height: 1;
+}
+%text-medium {
+  font: {
+    size: 1.5rem;
+    weight: 500;
+  }
+  line-height: 1.25;
+}
+%text-normal {
+  font: {
+    size: 1rem;
+    weight: 400;
+  }
+  line-height: 1.38;
+}
+%text-small {
+  font: {
+    size: 0.8rem;
+    weight: 400;
+  }
+  line-height: 1.38;
+}
+%link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}

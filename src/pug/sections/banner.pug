@@ -2,10 +2,10 @@ section.banner
   h2.hidden Акции
   - let bannerList = {"Малинка даром!": "При покупке 2 кг любого фруктового мороженого, добавим в ваш заказ банку малинового варенья бесплатно.", "Шоколадки даром!": "При покупке 2 кг пломбира, добавим в ваш заказ упаковку вкуснейшей шоколадной присыпки совершенно бесплатно."}
   each val, key in bannerList
-    .banner__card.half
-      h3= key 
-      p= val
+    .banner__card
+      h3.banner__text= key 
+      p.banner__description= val
       if key == "Малинка даром!"
-        button.btn Хочу варенье!
+        button.btn_medium Хочу варенье!
       else 
-        button.btn Хочу шоколадки!
+        button.btn_medium Хочу шоколадки!

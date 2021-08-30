@@ -1,16 +1,19 @@
 section.request
   h2.hidden Свяжитесь с нами
+  button.close 
+    img(src=require("../../images/cross-big.svg"), alt="Закрыть") 
   form
     fieldset
-      legend Мы обязательно вам ответим!
+      legend.title Мы обязательно вам ответим!
       ul 
         li 
-          label(for="req_name") Имя Фамилия
+          label.hidden(for="req_name") Имя Фамилия
           input#req_name(placeholder="Имя Фамилия")
         li 
-          label(for="req_email") E-mail
+          label.hidden(for="req_email") E-mail
           input#req_email(type="email", placeholder="email@example.com")
         li 
-          label(for="req_message") Сообщение
-          textarea#req_message(cols="30", rows="10", placeholder="В свободной форме") 
-    button.btn Отправить
+          label.hidden(for="req_message") Сообщение
+          textarea#req_message(cols="50", rows="5", placeholder="В свободной форме") 
+    button.btn_medium Отправить
+section.fade 

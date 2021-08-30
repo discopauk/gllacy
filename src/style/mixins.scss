@@ -1,0 +1,17 @@
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin mobile-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin mobile-wide-only {
+  @media (max-width: 768px) { @content; }
+}
+@mixin tablet-only {
+  @media (max-width: 1024px) { @content; }
+}
+@mixin laptop-only {
+  @media (max-width: 1200px) { @content; }
+}

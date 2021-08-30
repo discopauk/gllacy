@@ -1,4 +1,6 @@
-button.login Вход
+button.login.btn_transparent
+  img(inline src=require("../../images/entrance.svg"), width="20", height="19", alt="") 
+  | Вход
 .login__wrap
   form.login__form(action="submit")
     fieldset
@@ -9,7 +11,10 @@ button.login Вход
         li 
           label.hidden(for="password") 
           input#password(type="password", placeholder="password")
-    button.btn Войти
+    
   .login__info
+    button.btn_medium Войти
+  .login__service
     a(href="#") Забыли пароль?
+    br
     a(href="№") Новая регистрация

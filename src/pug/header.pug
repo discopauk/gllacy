@@ -4,12 +4,13 @@ header.main-header
     ul.main-menu__list
       each item in ["Каталог", "Доставка и оплата", "О компании"]
         li.main-menu__item: a(href="#")= item 
-    ul.flow-menu 
+    ul.dropdown
       each item in ["Новинки", "Сливочное", "Щербеты", "Фруктовый лед", "Мелорин"]
-        li.flow-menu__item: a(href="./catalog.html")= item
-  button.search 
-  .search__wrap
-    input(type="search", placeholder="Крем-брюле")
-  include utils/login.pug
-  button.cart Пусто
-  include utils/cart.pug
+        li.dropdown__item: a(href="./catalog.html")= item
+  .main-header__services
+    include utils/search.pug
+    include utils/login.pug
+    include utils/cart.pug
+  .main-header__info
+    p С 10 до 20, ежедневно
+    a(href="tel:+88124502525") 8 812 450-25-25

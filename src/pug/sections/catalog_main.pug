@@ -8,9 +8,9 @@ main
     ul.catalog__list
       each item in catalogList
         li.catalog__card
-          img(src=require(`../../images/ice${catalogList.indexOf(item)+1}.jpg`), width="267", height="267", alt="")
-          p.price 310 &#8381;
+          p.catalog__price 310 &#8381;
             span /кг 
+          img.catalog__image(src=require(`../../images/ice${catalogList.indexOf(item)+1}.jpg`), width="267", height="267", alt=`${catalogList}`)
           h3.catalog__title= item
     .pagination 
     - for (let x = 0; x < 6; x++)

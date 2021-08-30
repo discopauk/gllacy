@@ -17,13 +17,13 @@ module.exports = {
   devtool: "eval-cheap-module-source-map",
   devServer: {
     contentBase: "./dist",
-    compress: true,
     hot: true,
     overlay: {
       warnings: true,
       errors: true,
     },
   },
+  target: "web",
   optimization: {
     moduleIds: "deterministic",
   },
@@ -57,11 +57,11 @@ module.exports = {
         loader: "pug-loader",
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(ico|png|svg|jpg|jpeg|gif|webp)$/i,
         type: "asset/resource",
       },
       {
-        test: /\.(sa|sc|c)ss$/,
+        test: /\.s[ac]ss$/,
         use: [
           devMode ? "style-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
