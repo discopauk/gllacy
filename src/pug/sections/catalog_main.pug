@@ -2,7 +2,7 @@ main
   h1.hidden Магазин мороженого собственного производства Глэйси
   section.catalog
     include ../utils/crumbs.pug
-    h2 Сливочное мороженое
+    h2.title Сливочное мороженое
     include ../utils/filters.pug
     - let catalogList = ["Сливочное с апельсиновым джемом и цитрусовой стружкой", "Сливочно-кофейное с кусочками шоколада", "Сливочно-клубничное с присыпкой из белого шоколада", "Сливочное крем-брюле с карамельной подливкой", "Сливочное с брусничным джемом", "Сливочно-черничное с цельными ягодами черники", "Сливочно-лимонное с карамельной присыпкой", "Сливочное с шоколадной стружкой", "Сливочно-ванильное с кусочками шоколада", "Сливочноe с ментоловым сиропом", "Сливочное с кусочками черного шоколада", "Сливочное с мятным сиропом"]; 
     ul.catalog__list
@@ -12,6 +12,12 @@ main
             span /кг 
           img.catalog__image(src=require(`../../images/ice${catalogList.indexOf(item)+1}.jpg`), width="267", height="267", alt=`${catalogList}`)
           h3.catalog__title= item
-    .pagination 
-    - for (let x = 0; x < 6; x++)
-      .pagination__item= x
+          a.link(href="#") 
+    .pagination
+      button.prev.active
+        include ../../images/icon-right-small.svg
+      ul.pagination__list
+        - for (let x = 1; x < 6; x++)
+          li.pagination__item: a(href="#")= x
+      button.next
+        include ../../images/icon-right-small.svg

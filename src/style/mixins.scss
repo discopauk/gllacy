@@ -15,3 +15,27 @@
 @mixin laptop-only {
   @media (max-width: 1200px) { @content; }
 }
+%cover {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+%grid {
+  display: grid;
+  grid-gap: 25px;
+  align-items: center;
+  justify-items: center;
+  @include mobile-only {
+    grid-template-columns: 1fr;
+  }
+}
+%grid-2 {
+  @extend %grid;
+  grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+}
+%grid-4 {
+  @extend %grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+}
+
+

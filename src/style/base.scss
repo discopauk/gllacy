@@ -24,6 +24,9 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
 }
+img {
+  display: block;
+}
 address {
   font: {
     weight: 700;
@@ -51,96 +54,89 @@ a[href^="tel:"] {
     size: 1.375rem;
   }
 }
-input, textarea {
+input[type^="text"], input[type^="email"], textarea {
   padding: 11px 16px;
   width: 100%;
   border: 1px solid $grey;
   border-radius: 8px;
   font: inherit;
 }
+input[type^="radio"] {
+  appearance: none;
+  position: relative;
+  margin-right: 9px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid $text;
+  &:checked::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    background-color: $text;
+    border-radius: 50%;
+  }
+}
+label {
+  cursor: pointer;
+}
 textarea {
   resize: none;
 }
-fieldset {
-  margin-bottom: 16px;
-  li + li {
-    margin-top: 17px;
+label, legend {
+  display: block;
+}
+select {
+  font: inherit;
+  display: block;
+  padding: 8px;
+  width: 100%;
+  max-width: 195px;
+  color: $text;
+  background-color: $text_a;
+  border-radius: 32px;
+  transition: background-color $tr, color $tr;
+  &:hover, &:active {
+    color: $black;
+    background-color: $text;
+  }
+}
+output {
+  margin: 0 8px;
+  &::after {
+    counter-reset: current var(--current);
+    content: counter(current) " руб.";
+  }
+}
+input[type^="checkbox"] {
+  appearance: none;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 2px solid $text;
+  &:checked::before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: -4px;
+    left: 2px;
+    width: 19px;
+    height: 12px;
+    border-bottom: 4px solid $text;
+    border-left: 4px solid $text;
+    transform: rotate(-45deg);
+    box-shadow: 0 3px 0 #9db1a6;
   }
 }
 section {
-  margin-top: 50px;
+  margin: 50px 0;
 }
-
-%cover {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-%grid {
-  display: grid;
-  grid: {
-    gap: 25px;
-  }
-  align-items: center;
-  justify-items: center;
-  @include mobile-only {
-    grid-template-columns: 1fr;
-  }
-}
-%grid-2 {
-  @extend %grid;
-  grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
-}
-%grid-4 {
-  @extend %grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-}
-%btn_g {
-  padding: 1rem 2.6rem;
-  text-shadow: 0px 2px 5px $text_sh;
-  line-height: 1.38;
-  text-align: center;
-  font: {
-    size: 2rem;
-    weight: 700;
-  }
-  border-radius: 25%;
-}
-%text-large {
-  font: {
-    size: 3.75rem;
-    weight: 700;
-  }
-  line-height: 1;
-}
-%text-medium {
-  font: {
-    size: 1.5rem;
-    weight: 500;
-  }
-  line-height: 1.25;
-}
-%text-normal {
-  font: {
-    size: 1rem;
-    weight: 400;
-  }
-  line-height: 1.38;
-}
-%text-small {
-  font: {
-    size: 0.8rem;
-    weight: 400;
-  }
-  line-height: 1.38;
-}
-%link {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
+%title {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }

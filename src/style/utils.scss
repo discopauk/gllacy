@@ -16,26 +16,34 @@
                 linear-gradient(to top, $tomato, $orange);
   }
 }
-.btn {
-  padding: 9px 9.5px;
-  background-color: $text;
-}
-.btn_transparent {
+%btn-transparent {
   background-color: $text_a;
   font-weight: 500;
   color: $text;
-  transition: background-color $tr;
+  transition: background-color $tr, color $tr;
+  &.active, &:hover, &:active, &:focus {
+    color: $black;
+    background-color: $text;
+  }
+}
+.btn_transparent {
+  @extend %btn-transparent;
   svg {
     fill: $text;
     transition: fill $tr;
   }
   &.active, &:hover, &:active, &:focus {
-    color: $black;
-    background-color: $text;
     svg {
       fill: $black;
     }
   }
+}
+.btn_bd {
+  @extend %btn-transparent;
+  padding: 10px 25px;
+  border: 2px solid $text;
+  border-radius: 32px;
+  margin-bottom: 5px;
 }
 .btn_medium {
   @extend %btn-gradient;
@@ -199,12 +207,8 @@
 .hit {
   position: absolute;
 }
-.title {
-  margin-bottom: 13px;
-  font: {
-    weight: 500;
-    size: 1.5rem;
-  }
+.title{
+  @extend %title;
 }
 .close {
   position: absolute;
@@ -225,6 +229,172 @@
 }
 .copyright {
   font-size: 0.75rem;
+}
+.crumbs {
+  display: flex;
+  &__item {
+    margin-right: 5px;
+    &:nth-child(1),
+    &:nth-child(2) {
+      a {
+        border-bottom: 1px solid $text_a;
+      }
+      &::after {
+        content: "\00BB";
+        margin-left: 5px;
+      }
+    }
+  }
+}
+.filters {
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 40px;
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+.sort, .price, .fatness, .topping {
+  width: 100%;
+  margin-bottom: 5px;
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $text_a;
+    border-radius: 16px;
+    padding: 6px 12px;
+  }
+  &__title {
+    margin-left: 12px;
+    margin-bottom: 5px;
+  }
+}
+.sort {
+  max-width: 200px;
+}
+.price {
+  max-width: 235px;
+  display: flex;
+  flex-wrap: wrap;
+  &__range {
+    --diff: calc(var(--max) - var(--min));
+    display: grid;
+    margin: auto 0;
+    grid-template-rows: 7px;
+    grid-template-columns: 1fr 1fr;
+    align-items: baseline;
+    width: 100%;
+    background-color: $text_a;
+    border-radius: 16px;
+    padding: 14px;
+    &::before, &::after {
+      content: "";
+      height: 100%;
+      grid-column: 1/ span 2;
+      grid-row: 1;
+      background-color: $text;
+    } 
+    &::before {
+      margin-left: calc((var(--price-min) - var(--min))/var(--diff)*100%);
+      width: calc((var(--price-max) - var(--price-min))/var(--diff)*100%);
+    }
+    &::after {
+      margin-left: calc((var(--price-max) - var(--min))/var(--diff)*100%);
+      width: calc((var(--price-min) - var(--price-max))/var(--diff)*100%);
+    }
+  }
+  &__min, &__max {
+    grid-column: 1 /span 2;
+    grid-row: 1;
+    z-index: 1;
+    appearance: none;
+    background: none;
+    height: 7px;
+    width: 100%;
+    pointer-events: none;
+    z-index: 10;
+    cursor: pointer;
+    background-color: $text_a;
+    &::-webkit-slider-thumb,
+    &::-webkit-slider-runnable-track,
+    &::-moz-range-thumb,
+    &::-moz-range-progress {
+      pointer-events: auto;
+    }
+    &::-webkit-slider-thumb,
+    &::-moz-range-thumb {
+      width: 8px;
+      height: 8px;
+      background-color: $grey-brown;
+      border: 8px solid $text;
+      border-radius: 50%;
+    }
+  }
+}
+.fatness {
+  max-width: 430px;
+  &__item {
+    display: flex;
+  }
+}
+.topping {
+  max-width: 715px;
+  &__item {
+    display: flex;
+    input {
+      margin-right: 8px;
+    }
+  }
+}
+.pagination {
+  margin-top: 70px;
+  margin-bottom: 27px;
+  margin-left: auto;
+  width: 100%;
+  max-width: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__list {
+    display: contents;
+  }
+  &__item {
+    .active {
+      background-color: $text;
+      color: $black;
+      border-radius: 50%;
+    }
+  }
+}
+.next, .prev {
+  width: 8px;
+  height: 14px;
+  background: transparent;
+  svg {
+    fill: $text;
+  }
+  &.active {
+    svg {
+      fill: $text_a;
+    }
+  }
+}
+.prev {
+  transform: rotate(180deg);
+}
+.link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
 }
 .hidden {
   position: absolute;
