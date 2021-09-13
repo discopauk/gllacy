@@ -8,6 +8,7 @@
     background-color: $teal;
     background-image: url("../images/bgi1.jpg");
     background-repeat: no-repeat;
+    @extend %cover;
     .promo__text:nth-of-type(1) {
       display: block;
     }
@@ -16,6 +17,8 @@
 .slide2 {
   background-color: $blue;
   background-image: url("../images/bgi2.jpg");
+  background-repeat: no-repeat;
+  @extend %cover;
   .promo__text:nth-of-type(2) {
     display: block;
   }
@@ -23,7 +26,9 @@
 .slide3 {
   background-color: $ash;
   background-image: url("../images/bgi3.jpg");
-  .promo__text:nth-of-type(2) {
+  background-repeat: no-repeat;
+  @extend %cover;
+  .promo__text:nth-of-type(3) {
     display: block;
   }
 }
@@ -262,7 +267,7 @@
   }
 }
 .request {
-  position: absolute;
+  position: fixed;
   top: 15%;
   left: 35%;
   display: none;
@@ -272,11 +277,17 @@
   max-width: 480px;
   background-color: $text;
   color: $black;
-  z-index: 10;
+  z-index: 100;
   border-radius: 16px;
   box-shadow: $dropdown-shadow;
   .btn_medium {
     margin-left: auto;
+  }
+  &__item {
+    margin-bottom: 17px;
+  }
+  &.open ~ .fade {
+    opacity: 1;
   }
 }
 .main-footer {
@@ -314,4 +325,7 @@
       }
     }
   }
+}
+.open {
+  display: flex;
 }
