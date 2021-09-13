@@ -1,5 +1,4 @@
 main 
-  h1.hidden Магазин мороженого собственного производства Глэйси
   section.catalog
     include ../utils/crumbs.pug
     h2.title Сливочное мороженое
@@ -10,7 +9,7 @@ main
         li.catalog__card
           p.catalog__price 310 &#8381;
             span /кг 
-          img.catalog__image(src=require(`../../images/ice${catalogList.indexOf(item)+1}.jpg`), width="267", height="267", alt=`${catalogList}`)
+          img.catalog__image(src=require(`../../images/ice${catalogList.indexOf(item)+1}.jpg`), width="267" height="267", alt=`${catalogList}`)
           h3.catalog__title= item
           a.link(href="#") 
     .pagination
@@ -18,6 +17,6 @@ main
         include ../../images/icon-right-small.svg
       ul.pagination__list
         - for (let x = 1; x < 6; x++)
-          li.pagination__item: a(href="#")= x
+          li: a(href="#").pagination__item= x
       button.next
         include ../../images/icon-right-small.svg

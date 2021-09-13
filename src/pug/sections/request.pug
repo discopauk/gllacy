@@ -5,15 +5,15 @@ section.request
   form
     fieldset
       legend.title Мы обязательно вам ответим!
-      ul 
-        li 
+      ul.request__list 
+        li.request__item 
           label.hidden(for="req_name") Имя Фамилия
-          input#req_name(placeholder="Имя Фамилия")
-        li 
+          input#req_name(type="text" placeholder="Имя Фамилия")
+        li.request__item 
           label.hidden(for="req_email") E-mail
-          input#req_email(type="email", placeholder="email@example.com")
-        li 
+          input#req_email(type="email" placeholder="email@example.com")
+        li.request__item 
           label.hidden(for="req_message") Сообщение
-          textarea#req_message(cols="50", rows="5", placeholder="В свободной форме") 
+          textarea#req_message(cols="50" rows="5" placeholder="В свободной форме") 
     button.btn_medium Отправить
-section.fade 
+.fade 

@@ -2,10 +2,10 @@ footer.main-footer
   ul.social 
     each item in ["Twitter", "Instagram", "Facebook", "Vkontakte"]
       li.social__item 
-        a(href="#"): img(src=require(`../images/${item.toLowerCase()}.svg`), width="37", height="37", alt=`${item}`) 
+        a(href="#"): img(src=require(`../images/${item.toLowerCase()}.svg`), width="37" height="37", alt=`${item}`) 
   ul.main-footer__list
     each item in ["Для поставщиков", "О производстве", "Наши документы", "Экологические стандарты"]
       a.main-footer__item(href="#"): li= item
   .copyright
-    img(src=require("../images/logo-htmlacademy.svg"), width="108", height="39", alt="HTML Academy")
+    img(src=require("../images/logo-htmlacademy.svg"), width="108" height="39" alt="HTML Academy")
     p Сделано в HTML Academy &#169; 2019

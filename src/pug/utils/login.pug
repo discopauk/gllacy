@@ -1,17 +1,16 @@
 button.login.btn_transparent
-  img(inline src=require("../../images/entrance.svg"), width="20", height="19", alt="") 
+  include ../../images/entrance.svg
   | Вход
 .login__wrap
   form.login__form(action="submit")
     fieldset
-      ul
-        li
+      ul.login__list 
+        li.login__item
           label.hidden(for="email") 
-          input#email(type="email", placeholder="email@example.com")
-        li 
+          input#email(type="email" placeholder="email@example.com")
+        li.login__item 
           label.hidden(for="password") 
-          input#password(type="password", placeholder="password")
-    
+          input#password(type="password" placeholder="******")
   .login__info
     button.btn_medium Войти
   .login__service

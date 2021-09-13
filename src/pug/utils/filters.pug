@@ -10,9 +10,9 @@
       - let price_min = 100, price_max = 355, min = 0, max = 500
     .price(style=`--price-min: ${price_min}; --price-max: ${price_max}; --min: ${min}; --max: ${max}`)
       legend.price__title Цена: 
-      output#output-min(for="price-min", style="--current: var(--price-min)")
+      output#output-min(for="price-min" style="--current: var(--price-min)")
       | -
-      output#output-max(for="price-max", style="--current: var(--price-max)")
+      output#output-max(for="price-max" style="--current: var(--price-max)")
       .price__range
         label.hidden(for="price-min") Минимальная цена 
         input#price-min.price__min(type="range", min=min, max=max, value=price_min)
@@ -22,33 +22,33 @@
       legend.fatness__title Жирность:
       ul.fatness__list  
         li.fatness__item
-          input#zero(type="radio", name="fatness")
+          input#zero(type="radio" name="fatness")
           label(for="zero") 0%
         li.fatness__item 
-          input#toTen(type="radio", name="fatness" checked)
+          input#toTen(type="radio" name="fatness" checked)
           label(for="toTen") до 10%
         li.fatness__item 
-          input#toThirty(type="radio", name="fatness")
+          input#toThirty(type="radio" name="fatness")
           label(for="toThirty") до 30%
         li.fatness__item 
-          input#upThirty(type="radio", name="fatness")
+          input#upThirty(type="radio" name="fatness")
           label(for="upThirty") выше 30%
     fieldset.topping 
       legend.topping__title Наполнители:
       ul.topping__list
         li.topping__item 
-          input#choko(type="checkbox", name="topping") 
+          input#choko(type="checkbox" name="topping") 
           label(for="choko") шоколадные
         li.topping__item 
-          input#sugar(type="checkbox", name="topping") 
+          input#sugar(type="checkbox" name="topping") 
           label(for="sugar") сахарние присыпки
         li.topping__item 
-          input#fruit(type="checkbox", name="topping") 
+          input#fruit(type="checkbox" name="topping") 
           label(for="fruit") фрукты
         li.topping__item 
-          input#syrop(type="checkbox", name="topping") 
+          input#syrop(type="checkbox" name="topping") 
           label(for="syrop") сиропы
         li.topping__item 
-          input#jam(type="checkbox", name="topping") 
+          input#jam(type="checkbox" name="topping") 
           label(for="jam") джемы  
     button.btn_bd Применить
