@@ -1,41 +1,47 @@
 @mixin size($width, $height) {
-  width: $width;
-  height: $height;
+	width: $width;
+	height: $height;
 }
 
 @mixin mobile-only {
-  @media (max-width: 599px) { @content; }
+	@media (max-width: 599px) {
+		@content;
+	}
 }
 @mixin mobile-wide-only {
-  @media (max-width: 768px) { @content; }
+	@media (max-width: 768px) {
+		@content;
+	}
 }
 @mixin tablet-only {
-  @media (max-width: 1024px) { @content; }
+	@media (max-width: 1024px) {
+		@content;
+	}
 }
 @mixin laptop-only {
-  @media (max-width: 1200px) { @content; }
+	@media (max-width: 1200px) {
+		@content;
+	}
 }
 %cover {
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
+	background-position: top;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 %grid {
-  display: grid;
-  grid-gap: 25px;
-  align-items: center;
-  justify-items: center;
-  @include mobile-only {
-    grid-template-columns: 1fr;
-  }
+	display: grid;
+	grid-gap: 25px;
+	align-items: center;
+	justify-items: center;
+	@include mobile-only {
+		grid-template-columns: 1fr;
+	}
 }
 %grid-2 {
-  @extend %grid;
-  grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+	@extend %grid;
+	grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
 }
 %grid-4 {
-  @extend %grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+	@extend %grid;
+	grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
 }
-
-
