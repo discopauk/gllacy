@@ -1,51 +1,61 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ESLintPlugin = require("eslint-webpack-plugin");
-const HtmlWebpackInlineSVGPlugin = require("html-webpack-inline-svg-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require("path"),
+  HtmlWebpackPlugin = require("html-webpack-plugin"),
+  ESLintPlugin = require("eslint-webpack-plugin"),
+  MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const devMode = process.env.NODE_ENV !== "production";
+let mode = "development",
+  target = "web",
+  pages = ["index", "catalog"];
 
-module.exports = {
-  entry: "./src/index.js",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].js",
-    assetModuleFilename: "public/[name][ext]",
-    clean: true,
-  },
-  devtool: "eval-cheap-module-source-map",
-  devServer: {
-    contentBase: "./dist",
-    hot: true,
-    overlay: {
-      warnings: true,
-      errors: true,
-    },
-  },
-  target: "web",
-  optimization: {
-    moduleIds: "deterministic",
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: "Gllacy",
-      filename: "index.html",
-      favicon: "./src/images/favicon.ico",
-      template: "./src/index.pug",
-    }),
-    new HtmlWebpackPlugin({
-      title: "Gllacy",
-      filename: "catalog.html",
-      favicon: "./src/images/favicon.ico",
-      template: "./src/catalog.pug",
-    }),
-    new HtmlWebpackInlineSVGPlugin(),
+if (process.env.NODE_ENV === "production") {
+  mode = "production"
+};
+
+const plugins = [].concat(
+  pages.map(
+    (page) => 
+      new HtmlWebpackPlugin({
+        inject: true,
+        favicon: "./src/images/favicon.ico",
+        template: `./src/${page}.pug`,
+        filename: `${page}.html`,
+        chunks: [page],
+      })
+  ),
+  [
     new ESLintPlugin(),
     new MiniCssExtractPlugin({
       filename: "style.css",
     }),
-  ],
+  ]
+);
+
+module.exports = {
+  mode: mode,
+  target: target,
+
+  entry: pages.reduce((config, page) => {
+    config[page] = `./src/${page}.js`;
+    return config;
+  }, {}),
+
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    assetModuleFilename: "public/[name][ext]",
+    clean: true,
+  },
+
+  devtool: "eval-cheap-module-source-map",
+  devServer: {
+    contentBase: "./dist",
+    hot: true,
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all"
+    }
+  },
+
   module: {
     rules: [
       {
@@ -57,13 +67,13 @@ module.exports = {
         loader: "pug-loader",
       },
       {
-        test: /\.(ico|png|svg|jpg|jpeg|gif|webp)$/i,
-        type: "asset/resource",
+        test: /\.(ico|png|svg|jpe?g|gif|webp)$/i,
+        type: "asset",
       },
       {
-        test: /\.s[ac]ss$/,
+        test: /\.(s[ac]|c)ss$/i,
         use: [
-          devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+          mode === "development" ? "style-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
           {
             loader: "postcss-loader",
@@ -83,4 +93,5 @@ module.exports = {
       },
     ],
   },
+  plugins: plugins,
 };
