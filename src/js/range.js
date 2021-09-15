@@ -1,10 +1,6 @@
-try {
-	let	priceForm = document.querySelector(".price");
+let priceForm = document.querySelector(".price");
 
-	priceForm.addEventListener("input", e => {
-		let price = e.target;
-		priceForm.style.setProperty(`--${price.id}`, +price.value);
-	});
-} catch {
-	console.log("not catalog");
-}
+priceForm.addEventListener("input", (e) => {
+	let price = e.target;
+	priceForm.style.setProperty(`--${price.id}`, +price.value);
+});

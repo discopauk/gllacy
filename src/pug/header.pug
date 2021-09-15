@@ -1,13 +1,16 @@
 header.main-header
-  img.logo(src=require("../images/logo.svg"), width="154" height="64" alt="Глейси")
+  a(href="#"): img.logo(src=require("../images/logo.svg"), width="154" height="64" alt="Глейси")
   nav.main-menu
     ul.main-menu__list
-      each item in ["Каталог", "Доставка и оплата", "О компании"]
+      li.main-menu__item 
+        a(href="#") Каталог 
+        ul.dropdown
+          each item in ["Новинки", "Сливочное", "Щербеты", "Фруктовый лед", "Мелорин"]
+            li.dropdown__item= item
+              a.link(href="./catalog.html")
+      each item in ["Доставка и оплата", "О компании"]
         li.main-menu__item: a(href="#")= item 
-    ul.dropdown
-      each item in ["Новинки", "Сливочное", "Щербеты", "Фруктовый лед", "Мелорин"]
-        li.dropdown__item= item
-          a.link(href="./catalog.html")
+
   .main-header__services
     include utils/search.pug
     include utils/login.pug

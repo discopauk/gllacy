@@ -12,11 +12,4 @@ main
           img.catalog__image(src=require(`../../images/ice${catalogList.indexOf(item)+1}.jpg`), width="267" height="267", alt=`${catalogList}`)
           h3.catalog__title= item
           a.link(href="#") 
-    .pagination
-      button.prev.active
-        include ../../images/icon-right-small.svg
-      ul.pagination__list
-        - for (let x = 1; x < 6; x++)
-          li: a(href="#").pagination__item= x
-      button.next
-        include ../../images/icon-right-small.svg
+    include ../utils/pagination.pug
