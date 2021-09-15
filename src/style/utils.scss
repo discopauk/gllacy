@@ -3,18 +3,21 @@
 	font-weight: 700;
 	border-radius: 32px;
 	box-shadow: $box-shadow;
-	background-image: linear-gradient(to top, $tomato, $orange);
-	transition: background-image $tr, box-shadow $tr;
+	background: linear-gradient(to top, $tomato, $orange);
+	transition: background $tr, box-shadow $tr;
 	&:hover {
 		box-shadow: $box-shadow_hover;
-		background-image: linear-gradient(to top, $text_a, $text_a),
-			linear-gradient(to top, $tomato, $orange);
-	}
-	&:active,
-	&:focus {
-		box-shadow: inset $box-shadow_active;
 		background: linear-gradient(to top, $text_a, $text_a),
 			linear-gradient(to top, $tomato, $orange);
+	}
+	&:active {
+		box-shadow: inset $box-shadow_active;
+		background: linear-gradient(
+				to top,
+				rgba(0, 0, 0, 0.07),
+				rgba(0, 0, 0, 0.07)
+			),
+			linear-gradient(to top, $orange, $tomato);
 	}
 }
 %btn-transparent {
@@ -22,22 +25,21 @@
 	font-weight: 500;
 	color: $text;
 	transition: background-color $tr, color $tr;
-	&:hover {
-		color: $black;
-		background-color: $text;
-	}
-}
-.btn_transparent {
-	@extend %btn-transparent;
 	svg {
 		fill: $text;
 		transition: fill $tr;
 	}
-	&:hover {
+	&:hover,
+	&.open {
+		color: $black;
+		background-color: $text;
 		svg {
 			fill: $black;
 		}
 	}
+}
+.btn_transparent {
+	@extend %btn-transparent;
 }
 .btn_bd {
 	@extend %btn-transparent;
@@ -45,6 +47,9 @@
 	border: 2px solid $text;
 	border-radius: 32px;
 	margin-bottom: 5px;
+	&:active {
+		box-shadow: inset 0 2px 1px #696969;
+	}
 }
 .btn_medium {
 	@extend %btn-gradient;
@@ -167,6 +172,7 @@
 	box-shadow: $dropdown-shadow;
 	border-radius: 8px;
 	z-index: 10;
+	font-weight: 400;
 	&__item {
 		position: relative;
 		padding: 0 15px;
@@ -193,14 +199,22 @@
 		&:hover {
 			background-color: $pink_pale;
 		}
+		&:active {
+			background-color: $salmon;
+		}
+		&.current {
+			color: $text;
+			background-color: $pink_dark;
+		}
 	}
 }
 .thumb {
 	position: absolute;
-	bottom: 0;
+	bottom: 5px;
 	left: 0;
 	display: flex;
 	&__item {
+		display: block;
 		margin-left: 10px;
 		width: 24px;
 		height: 24px;
@@ -208,8 +222,15 @@
 		border-radius: 50%;
 		background-color: transparent;
 		transition: background-color $tr;
+		a {
+			display: block;
+			width: 1000%;
+			height: 100%;
+		}
+		&:hover {
+			background-color: $text_a;
+		}
 		&.current,
-		&:hover,
 		&:active {
 			background-color: $text;
 		}
@@ -383,9 +404,14 @@
 		position: relative;
 		padding: 2px 8px;
 		border-radius: 50%;
+		transition: background-color $tr;
+		cursor: pointer;
 		&.active {
 			background-color: $text;
 			color: $black;
+		}
+		&:not(.active):hover {
+			background-color: $text_a;
 		}
 	}
 }
@@ -395,11 +421,11 @@
 	height: 14px;
 	background: transparent;
 	svg {
-		fill: $text;
+		fill: $text_a;
 	}
 	&.active {
 		svg {
-			fill: $text_a;
+			fill: $text;
 		}
 	}
 }

@@ -6,6 +6,9 @@
 	border: 0;
 	box-sizing: border-box;
 }
+:focus {
+	outline: 3px solid #5f35e7;
+}
 html {
 	background-color: $teal;
 }
@@ -67,9 +70,17 @@ input[type^="search"],
 textarea {
 	padding: 11px 16px;
 	width: 100%;
-	border: 1px solid $grey;
+	border: 2px solid rgba(178, 178, 178, 0.52);
 	border-radius: 8px;
 	font: inherit;
+	font-weight: 500;
+	&:hover {
+		border-color: rgba(154, 154, 154, 0.52);
+	}
+	&:focus-visible {
+		outline: none;
+		border-color: rgba(46, 136, 228, 0.52);
+	}
 }
 input[type^="radio"] {
 	appearance: none;
@@ -111,10 +122,10 @@ select {
 	background-color: $text_a;
 	border-radius: 32px;
 	transition: background-color $tr, color $tr;
+	cursor: pointer;
 	&:hover,
 	&:active {
 		color: $black;
-		background-color: $text;
 	}
 }
 output {
