@@ -116,23 +116,6 @@
 		text-shadow: 2px 2px 2px $black_a;
 	}
 }
-.slides {
-	display: flex;
-	overflow: hidden;
-	scroll-behavior: smooth;
-}
-#slide1,
-#slide2,
-#slide3 {
-	margin-bottom: 5px;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: center;
-	width: 1250px;
-	flex-shrink: 0;
-	background-repeat: no-repeat;
-}
 .banner {
 	@extend %grid-2;
 	&__text {
