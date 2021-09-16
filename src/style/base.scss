@@ -10,7 +10,7 @@
 	outline: 3px solid #5f35e7;
 }
 html {
-	background-color: $teal;
+	transition: background-color $tr;
 }
 body {
 	width: 100%;
@@ -28,6 +28,7 @@ body {
 	background-position: top;
 	background-size: contain;
 	background-repeat: no-repeat;
+	overflow-x: hidden;
 }
 img {
 	display: block;

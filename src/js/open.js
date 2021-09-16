@@ -1,7 +1,9 @@
 let arr = ["login", "search", "cart"];
 arr.forEach((elem) => {
-	document.querySelector(`.${elem}`).addEventListener("click", () => {
-		document.querySelector(`.${elem}__wrap`).classList.toggle("open");
-		document.querySelector(`.${elem}`).classList.toggle("open");
+	let target = document.querySelector(`.${elem}`),
+		targetWrap = document.querySelector(`.${elem}__wrap`);
+	target.addEventListener("click", () => {
+		targetWrap.classList.toggle("open");
+		target.classList.toggle("open");
 	});
 });

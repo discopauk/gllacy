@@ -67,8 +67,8 @@
 	margin-left: 7px;
 	&__wrap {
 		position: absolute;
-		top: 65px;
-		display: none;
+		top: 70px;
+		display: flex;
 		width: 100%;
 		padding: 20px 15px;
 		flex-wrap: wrap;
@@ -78,6 +78,11 @@
 		box-shadow: $dropdown-shadow;
 		border-radius: 8px;
 		z-index: 1;
+		transform: translateY(-100vw);
+		transition: $tr;
+		&.open {
+			transform: translateY(0);
+		}
 	}
 }
 .login,

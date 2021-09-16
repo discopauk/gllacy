@@ -44,3 +44,25 @@
 	@extend %grid;
 	grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
 }
+@keyframes scale_in {
+	0% {
+		transform: scale(0);
+	}
+	80% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+@keyframes scale_out {
+	0% {
+		transform: scale(1);
+	}
+	80% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(0);
+	}
+}

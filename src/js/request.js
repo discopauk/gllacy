@@ -1,10 +1,10 @@
-let requestBtn = document.querySelector(".map__request"),
-	request = document.querySelector(".request"),
-	close = document.querySelector(".close");
+let request = document.querySelector(".request");
 
-requestBtn.addEventListener("click", () => {
-	request.classList.toggle("open");
+document.querySelector(".map__request").addEventListener("click", () => {
+	request.classList.remove("close");
+	request.classList.add("open");
 });
-close.addEventListener("click", () => {
+document.querySelector(".close").addEventListener("click", () => {
 	request.classList.remove("open");
+	request.classList.add("close");
 });

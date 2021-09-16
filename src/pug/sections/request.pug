@@ -8,12 +8,12 @@ section.request
       ul.request__list 
         li.request__item 
           label.hidden(for="req_name") Имя Фамилия
-          input#req_name(type="text" placeholder="Имя Фамилия")
+          input#req_name(type="text" placeholder="Имя Фамилия" required)
         li.request__item 
           label.hidden(for="req_email") E-mail
-          input#req_email(type="email" placeholder="email@example.com")
+          input#req_email(type="email" placeholder="email@example.com" required)
         li.request__item 
           label.hidden(for="req_message") Сообщение
-          textarea#req_message(cols="50" rows="5" placeholder="В свободной форме") 
+          textarea#req_message(cols="50" rows="5" placeholder="В свободной форме" required) 
     button.btn_medium Отправить
 .fade 
