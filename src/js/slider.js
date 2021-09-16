@@ -1,4 +1,4 @@
-let btns = document.querySelectorAll("#btn1, #btn2, #btn3"),
+const btns = document.querySelectorAll("#btn1, #btn2, #btn3"),
 	html = document.querySelector("html");
 
 btns.forEach((e) => {

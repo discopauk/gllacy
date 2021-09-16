@@ -1,6 +1,9 @@
-let paginations = document.querySelectorAll(".pagination__item"),
+const paginations = document.querySelectorAll(".pagination__item"),
+	dropdownFirst = document.querySelector(".dropdown__item:nth-of-type(2)"),
 	next = document.querySelector(".next"),
 	prev = document.querySelector(".prev");
+
+dropdownFirst.classList.add("current");
 
 paginations.forEach((e) => {
 	e.addEventListener("click", active);
@@ -25,7 +28,3 @@ function active(e) {
 		next.classList.add("active");
 	}
 }
-
-document
-	.querySelector(".dropdown__item:nth-of-type(2)")
-	.classList.add("current");

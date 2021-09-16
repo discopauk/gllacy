@@ -1,8 +1,11 @@
 import { openModal } from "./open";
 
-let modals = ["request"];
+const modals = ["request"],
+	modalsWrap = document.querySelector(".request__wrap"),
+	close = document.querySelector(".close");
+
 modals.forEach(openModal);
-document.querySelector(".close").addEventListener("click", () => {
-	document.querySelector(".request__wrap").classList.remove("open");
-	document.querySelector(".request__wrap").classList.add("closeModal");
+close.addEventListener("click", () => {
+	modalsWrap.classList.remove("open");
+	modalsWrap.classList.add("closeModal");
 });

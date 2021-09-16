@@ -1,4 +1,4 @@
-let services = ["login", "search", "cart"];
+const services = ["login", "search", "cart"];
 services.forEach(openModal);
 
 function openModal(elem) {
