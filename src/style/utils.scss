@@ -78,10 +78,9 @@
 		box-shadow: $dropdown-shadow;
 		border-radius: 8px;
 		z-index: 1;
-		transform: translateY(-100vw);
-		transition: $tr;
+		transform: translateY(-100vh);
 		&.open {
-			transform: translateY(0);
+			animation: drop 0.6s ease forwards;
 		}
 	}
 }
