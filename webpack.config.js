@@ -3,17 +3,11 @@ const path = require("path"),
   ESLintPlugin = require("eslint-webpack-plugin"),
   MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-let mode = "development",
-  target = "web",
-  pages = ["index", "catalog"];
-
-if (process.env.NODE_ENV === "production") {
-  mode = "production"
-};
+let pages = ["index", "catalog"];
 
 const plugins = [].concat(
   pages.map(
-    (page) => 
+    (page) =>
       new HtmlWebpackPlugin({
         inject: true,
         favicon: "./src/images/favicon.ico",
@@ -30,68 +24,73 @@ const plugins = [].concat(
   ]
 );
 
-module.exports = {
-  mode: mode,
-  target: target,
+module.exports = (env, argv) => {
+  return {
+    mode: env.production ? "production" : "development",
+    target: env.production ? "browserlist" : "web",
+    devtool: env.production ? "sorce-map" : "eval-cheap-module-source-map",
 
-  entry: pages.reduce((config, page) => {
-    config[page] = `./src/${page}.js`;
-    return config;
-  }, {}),
+    entry: pages.reduce((config, page) => {
+      config[page] = `./src/${page}.js`;
+      return config;
+    }, {}),
 
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    assetModuleFilename: "public/[name][ext]",
-    clean: true,
-  },
+    output: {
+      assetModuleFilename: "public/[name][ext][query]",
+      clean: true,
+    },
 
-  devtool: "eval-cheap-module-source-map",
-  devServer: {
-    contentBase: "./dist",
-    hot: true,
-  },
-  optimization: {
-    splitChunks: {
-      chunks: "all"
-    }
-  },
-
-  module: {
-    rules: [
-      {
-        test: /\.html$/i,
-        loader: "html-loader",
+    devServer: {
+      contentBase: "./dist",
+      hot: true,
+    },
+    optimization: {
+      splitChunks: {
+        chunks: "all",
       },
-      {
-        test: /\.pug$/i,
-        loader: "pug-loader",
-      },
-      {
-        test: /\.(ico|png|svg|jpe?g|gif|webp)$/i,
-        type: "asset",
-      },
-      {
-        test: /\.(s[ac]|c)ss$/i,
-        use: [
-          mode === "development" ? "style-loader" : MiniCssExtractPlugin.loader,
-          "css-loader",
-          {
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: [["autoprefixer"]],
+      minimize: argv.mode === "production",
+      moduleIds: "named",
+    },
+
+    module: {
+      rules: [
+        {
+          test: /\.html$/i,
+          loader: "html-loader",
+        },
+        {
+          test: /\.pug$/i,
+          loader: "pug-loader",
+        },
+        {
+          test: /\.(ico|png|svg|jpe?g|gif|webp)$/i,
+          type: "asset",
+        },
+        {
+          test: /\.(s[ac]|c)ss$/i,
+          use: [
+            argv.mode === "production"
+              ? MiniCssExtractPlugin.loader
+              : "style-loader",
+            "css-loader",
+            {
+              loader: "postcss-loader",
+              options: {
+                postcssOptions: {
+                  plugins: [["autoprefixer"]],
+                },
               },
             },
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              additionalData: `@import "variables.scss";`,
+            {
+              loader: "sass-loader",
+              options: {
+                additionalData: `@import "variables.scss";`,
+              },
             },
-          },
-        ],
-      },
-    ],
-  },
-  plugins: plugins,
+          ],
+        },
+      ],
+    },
+    plugins: plugins,
+  };
 };
