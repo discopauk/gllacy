@@ -5,7 +5,7 @@ section.catalog
     each item in catalogList
       li.catalog__card  
         img.hit(src=require("../../images/hit.svg"), width="61" height="61" alt="Хит")
-        img.catalog__image(src=require(`../../images/ice${catalogList.indexOf(item)+1}.jpg`), width="267" height="267" alt="")
+        img.catalog__image(src=require(`../../images/ice${catalogList.indexOf(item)+1}.jpg`), width="267" height="267" alt="" loading="lazy")
         p.catalog__price 310 &#8381;
           span /кг 
         h3.catalog__title= item
