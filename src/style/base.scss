@@ -15,24 +15,12 @@ html {
 }
 body {
 	width: 100%;
-	max-width: 1250px;
+	max-width: 85vw;
 	margin: 0 auto;
 	color: $text;
-	font: {
-		family: "Roboto", sans-serif;
-		size: 16px;
-		weight: 400;
-	}
-	line-height: 1.38;
+	font: 400 16px/1.38 "Roboto", sans-serif;
 	letter-spacing: normal;
-	-webkit-text-size-adjust: 100%;
-	background-position: top;
-	background-size: contain;
-	background-repeat: no-repeat;
-	overflow-x: hidden;
-}
-img {
-	display: block;
+	@extend %cover;
 }
 address {
 	font: {
@@ -40,9 +28,6 @@ address {
 		size: 1.2rem;
 		style: normal;
 	}
-}
-button {
-	font-size: inherit;
 }
 ul,
 li {
@@ -54,7 +39,7 @@ a {
 }
 button {
 	display: flex;
-	font-family: inherit;
+	font: inherit;
 	text-align: center;
 	cursor: pointer;
 	width: max-content;
@@ -74,8 +59,12 @@ textarea {
 	width: 100%;
 	border: 2px solid rgba(178, 178, 178, 0.52);
 	border-radius: 8px;
-	font: inherit;
-	font-weight: 500;
+	font: {
+		family: inherit;
+		weight: 500;
+		size: 1.1rem;
+	}
+	transition: border-color $tr;
 	&:hover {
 		border-color: rgba(154, 154, 154, 0.52);
 	}
@@ -84,20 +73,21 @@ textarea {
 		border-color: rgba(46, 136, 228, 0.52);
 	}
 }
+input[type^="checkbox"],
+input[type^="radio"] {
+	margin-right: 9px;
+}
 input[type^="radio"] {
 	appearance: none;
 	position: relative;
-	margin-right: 9px;
-	width: 22px;
-	height: 22px;
-	border-radius: 50%;
 	cursor: pointer;
-	border: 2px solid $text;
+	border-radius: 50%;
+	@extend %filter-bd;
 	&:checked::before {
 		content: "";
 		position: absolute;
-		top: 4px;
-		left: 4px;
+		top: 3px;
+		left: 3px;
 		width: 10px;
 		height: 10px;
 		background-color: $text;
@@ -116,14 +106,12 @@ legend {
 }
 select {
 	font: inherit;
-	display: block;
-	padding: 8px;
+	padding: 8px 16px;
 	width: 100%;
-	max-width: 195px;
 	color: $text;
 	background-color: $text_a;
 	border-radius: 32px;
-	transition: background-color $tr, color $tr;
+	transition: color $tr;
 	cursor: pointer;
 	&:hover,
 	&:active {
@@ -140,9 +128,7 @@ output {
 input[type^="checkbox"] {
 	appearance: none;
 	position: relative;
-	width: 20px;
-	height: 20px;
-	border: 2px solid $text;
+	@extend %filter-bd;
 	&:checked::before {
 		content: "";
 		position: absolute;
@@ -159,9 +145,4 @@ input[type^="checkbox"] {
 }
 section {
 	margin: 50px 0;
-}
-%title {
-	font-weight: 700;
-	font-size: 2rem;
-	margin-bottom: 20px;
 }

@@ -9,6 +9,7 @@ const plugins = [].concat(
   pages.map(
     (page) =>
       new HtmlWebpackPlugin({
+        title: "Gllacy",
         inject: true,
         favicon: "./src/images/favicon.ico",
         template: `./src/${page}.pug`,

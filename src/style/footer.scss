@@ -1,0 +1,47 @@
+.social {
+	width: 100%;
+	max-width: 190px;
+	@extend %flex-c-sb;
+	&__item img {
+		border: 2px solid rgba(255, 255, 2555, 0.5);
+		border-radius: 50%;
+	}
+}
+.copyright {
+	font-size: 0.75rem;
+}
+.main-footer {
+	@extend %flex-c-sb;
+	padding: 20px 0;
+	border-top: 1px solid $text_a;
+	&__list {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: space-between;
+		height: 100%;
+		max-height: 50px;
+		width: 100%;
+		max-width: 355px;
+	}
+	&__item {
+		position: relative;
+		font-size: 0.8rem;
+		border-bottom: 1px solid $text_a;
+		line-height: 1.8;
+		&:nth-of-type(1) {
+			font-weight: 700;
+			&::before {
+				content: "";
+				position: absolute;
+				top: 6px;
+				left: -20px;
+				display: block;
+				width: 15px;
+				height: 13px;
+				background-image: url("../images/heart.svg");
+			}
+		}
+	}
+}

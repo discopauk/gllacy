@@ -1,20 +1,19 @@
 button.cart.btn_transparent 
   include ../../images/basket.svg
   | Пусто
-.cart__wrap
-  table.table
-    tbody
-      - for (let x = 0; x < 2; x++)
-        tr.row
-          td.row__delite 
-            button.btn: img(src=require("../../images/cross-small.svg"), width="11" height="11" alt="")
-          td.row__image: img(src=require("../../images/ice1.jpg"), width="33" height="33" alt="") 
-          td.row__title Пломбир с апельсиновым джемом
-          td.row__amount 1,5 кг х 
-            span 200 руб.
-          td.row__summary 300 руб.
-    tfoot
-      tr.table__foot
-        td.table__total(colspan="5") Итого: 600 руб.
-      tr.table__foot 
-        td(colspan="5"): button.btn_medium Оформить заказ
+table.table.cart__wrap
+  tbody.table__body
+    - for (let x = 0; x < 2; x++)
+      tr.row
+        td.row__delite 
+          button.btn: img(src=require("../../images/cross-small.svg"), width="11" height="11" alt="")
+        td.row__image: img(src=require("../../images/ice1.jpg"), width="33" height="33" alt="") 
+        td.row__title Пломбир с апельсиновым джемом
+        td.row__amount 1,5 кг х 
+          span 200 руб.
+        td.row__summary 300 руб.
+  tfoot.table__foot
+    tr
+      td.table__total(colspan="5") Итого: 600 руб.
+    tr
+      td(colspan="5"): button.btn_medium Оформить заказ
