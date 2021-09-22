@@ -5,7 +5,8 @@ footer.main-footer
         a(href="#"): img(src=require(`../images/${item.toLowerCase()}.svg`), width="37" height="37", alt=`${item}`) 
   ul.main-footer__list
     each item in ["Для поставщиков", "О производстве", "Наши документы", "Экологические стандарты"]
-      a.main-footer__item(href="#"): li= item
+      li.main-footer__item= item
+        a.link(href="#")
   .copyright
     img(src=require("../images/logo-htmlacademy.svg"), width="108" height="39" alt="HTML Academy")
     p Сделано в HTML Academy &#169; 2019

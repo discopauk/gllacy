@@ -145,12 +145,20 @@
 		@extend %grid-4;
 	}
 	&__card {
+		position: relative;
 		height: 375px;
 		padding: 8px 16px;
 		text-align: center;
 		position: relative;
 		border-radius: 8px;
 		transition: background-color $tr;
+		&::before {
+			content: url("../images/hit.svg");
+			position: absolute;
+			display: block;
+			width: 61px;
+			height: 61px;
+		}
 		&:hover {
 			background-color: $text_a;
 			.catalog__title {
