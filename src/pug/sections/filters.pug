@@ -12,7 +12,7 @@ section.filters
       - let price_min = 100, price_max = 355, min = 0, max = 500
     .price(style=`--price-min: ${price_min}; --price-max: ${price_max}; --min: ${min}; --max: ${max}`)
       legend.price__title Цена: 
-      output#output-min(for="price-min" style="--current: var(--price-min)")
+      output#output-min.output-min(for="price-min" style="--current: var(--price-min)")
       | -
       output#output-max(for="price-max" style="--current: var(--price-max)")
       .price__range

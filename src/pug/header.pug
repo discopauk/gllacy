@@ -1,5 +1,9 @@
 header.main-header
   a(href="#"): img.logo(src=require("../images/logo.svg"), width="154" height="64" alt="Глейси")
+  .toggle
+    .toggle__line 
+    .toggle__line 
+    .toggle__line 
   nav.main-menu
     ul.main-menu__list
       li.main-menu__item 
@@ -10,7 +14,6 @@ header.main-header
               a.link(href="./catalog.html")
       each item in ["Доставка и оплата", "О компании"]
         li.main-menu__item: a(href="#")= item 
-
   .main-header__services
     include utils/search.pug
     include utils/login.pug

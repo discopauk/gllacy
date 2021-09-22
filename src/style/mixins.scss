@@ -1,20 +1,15 @@
-@mixin mobile-only {
-	@media (max-width: 599px) {
+@mixin mobile-wide-only {
+	@media (max-width: 880px) {
 		@content;
 	}
 }
-@mixin mobile-wide-only {
-	@media (max-width: 768px) {
+@mixin tablet-small-only {
+	@media (max-width: 998px) {
 		@content;
 	}
 }
 @mixin tablet-only {
 	@media (max-width: 1024px) {
-		@content;
-	}
-}
-@mixin laptop-only {
-	@media (max-width: 1200px) {
 		@content;
 	}
 }
@@ -92,7 +87,7 @@
 	display: grid;
 	grid-gap: 25px;
 	justify-items: center;
-	@include mobile-only {
+	@include mobile-wide-only {
 		grid-template-columns: 1fr;
 	}
 }
@@ -106,24 +101,24 @@
 }
 @keyframes scale_in {
 	0% {
-		transform: scale(0);
+		transform: scale(0) translate(-50%, -50%);
 	}
 	80% {
-		transform: scale(1.2);
+		transform: scale(1.2) translate(-50%, -50%);
 	}
 	100% {
-		transform: scale(1);
+		transform: scale(1) translate(-50%, -50%);
 	}
 }
 @keyframes scale_out {
 	0% {
-		transform: scale(1);
+		transform: scale(1) translate(-50%, -50%);
 	}
 	80% {
-		transform: scale(1.2);
+		transform: scale(1.2) translate(-50%, -50%);
 	}
 	100% {
-		transform: scale(0);
+		transform: scale(0) translate(-50%, -50%);
 	}
 }
 @keyframes drop {

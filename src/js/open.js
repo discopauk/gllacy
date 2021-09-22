@@ -11,4 +11,8 @@ function openModal(elem) {
 	});
 }
 
+document.querySelector(".toggle").addEventListener("click", () => {
+	document.querySelector(".toggle").classList.toggle("active");
+	document.querySelector("body").classList.toggle("menuOpen");
+});
 export { openModal };

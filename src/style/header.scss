@@ -1,6 +1,7 @@
 .login,
 .cart,
 .search {
+	position: relative;
 	&__wrap {
 		position: absolute;
 		top: 70px;
@@ -94,6 +95,33 @@
 		}
 	}
 }
+.toggle {
+	position: absolute;
+	right: 0;
+	display: none;
+	cursor: pointer;
+	&__line {
+		width: 25px;
+		height: 2px;
+		background-color: $text;
+		margin: 5px auto;
+		transition: transform $tr, opacity $tr;
+	}
+	&.active {
+		.toggle__line:nth-of-type(1) {
+			transform: translateY(7px) rotate(45deg);
+		}
+		.toggle__line:nth-of-type(2) {
+			opacity: 0;
+		}
+		.toggle__line:nth-of-type(3) {
+			transform: translateY(-7px) rotate(-45deg);
+		}
+	}
+	@include tablet-small-only {
+		display: block;
+	}
+}
 .logo {
 	margin-right: 24px;
 }
@@ -144,10 +172,14 @@
 	position: relative;
 	@extend %flex-c-sb;
 	padding: 10px 0;
+	transition: $tr;
 	&__services {
 		width: 100%;
 		max-width: 265px;
 		@extend %flex-c-sb;
+		@include tablet-small-only {
+			visibility: hidden;
+		}
 	}
 	&__info {
 		position: absolute;
@@ -162,6 +194,7 @@
 }
 .main-menu {
 	margin-right: auto;
+	transition: $tr;
 	&__list {
 		@extend %flex-c-sb;
 		width: 100%;
@@ -195,6 +228,9 @@
 		&:active {
 			box-shadow: inset 0px 2px 1px 0 $grey-brown;
 		}
+	}
+	@include tablet-small-only {
+		transform: translateX(-100vw);
 	}
 }
 .current {

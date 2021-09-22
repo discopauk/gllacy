@@ -10,6 +10,7 @@
 	outline: 3px solid #5f35e7;
 }
 html {
+	position: relative;
 	background-color: $teal;
 	transition: background-color $tr;
 }
@@ -20,7 +21,6 @@ body {
 	color: $text;
 	font: 400 16px/1.38 "Roboto", sans-serif;
 	letter-spacing: normal;
-	@extend %cover;
 }
 address {
 	font: {
@@ -49,6 +49,14 @@ a[href^="tel:"] {
 		weight: 700;
 		size: 1.375rem;
 	}
+}
+img {
+	display: block;
+}
+p {
+	width: 100%;
+	max-width: 60vw;
+	word-wrap: normal;
 }
 input[type^="text"],
 input[type^="email"],

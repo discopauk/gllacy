@@ -7,7 +7,7 @@ main
         li.catalog__card
           p.catalog__price 310 &#8381;
             span /кг 
-          img.catalog__image(src=require(`../../images/ice${catalogList.indexOf(item)+1}.jpg`), width="267" height="267", alt=`${catalogList}` loading="lazy")
+          img.catalog__image(src=require(`../../images/ice${catalogList.indexOf(item)+1}.jpg`), width="267" height="267", alt=`${item}` loading="lazy")
           h3.catalog__title= item
           a.link(href="#") 
     include ../utils/pagination.pug
