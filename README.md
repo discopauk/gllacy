@@ -1,3 +1,3 @@
-:skull: My first test 
+HTMLAcademy template
 ____
-:crying_cat_face: still looking for a job 
+:heavy_check_mark: done & will never be updated
