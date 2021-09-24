@@ -52,6 +52,7 @@
 		height: 100vh;
 		background-color: $teal;
 		z-index: 10;
+		visibility: visible;
 		&__info {
 			top: 80vh;
 			right: 5vw;
