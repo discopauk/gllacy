@@ -13,6 +13,22 @@
 		@content;
 	}
 }
+@mixin track {
+	width: 100%;
+	background: none;
+	color: $text;
+}
+@mixin thumb {
+	-webkit-appearance: none;
+	border: none;
+	width: 8px;
+	height: 8px;
+	background-color: $grey-brown;
+	border: 8px solid $text;
+	border-radius: 50%;
+	pointer-events: auto;
+	color: $text;
+}
 %cover {
 	background-position: top;
 	background-size: cover;

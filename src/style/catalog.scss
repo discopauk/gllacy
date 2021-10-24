@@ -73,23 +73,23 @@
 		z-index: 1;
 		cursor: pointer;
 		background-color: $text_a;
-		&::-webkit-slider-runnable-track,
-		&::-moz-range-track {
-			width: 100%;
-			background: none;
-			color: $text;
+		&::-webkit-slider-runnable-track {
+			@include track;
 		}
-		&::-webkit-slider-thumb,
+		&::-moz-range-track {
+			@include track;
+		}
+		&::-ms-track {
+			@include track;
+		}
+		&::-webkit-slider-thumb {
+			@include thumb;
+		}
 		&::-moz-range-thumb {
-			-webkit-appearance: none;
-			border: none;
-			width: 8px;
-			height: 8px;
-			background-color: $grey-brown;
-			border: 8px solid $text;
-			border-radius: 50%;
-			pointer-events: auto;
-			color: $text;
+			@include thumb;
+		}
+		&::-ms-thumb {
+			@include thumb;
 		}
 	}
 }
