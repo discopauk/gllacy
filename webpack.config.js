@@ -74,20 +74,8 @@ module.exports = (env, argv) => {
               ? MiniCssExtractPlugin.loader
               : "style-loader",
             "css-loader",
-            {
-              loader: "postcss-loader",
-              options: {
-                postcssOptions: {
-                  plugins: [["autoprefixer"]],
-                },
-              },
-            },
-            {
-              loader: "sass-loader",
-              options: {
-                additionalData: `@import "variables.scss";`,
-              },
-            },
+            "postcss-loader",
+            "sass-loader"
           ],
         },
       ],
