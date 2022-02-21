@@ -1,20 +1,22 @@
 const paginations = document.querySelectorAll(".pagination__item"),
-	dropdownFirst = document.querySelector(".dropdown__item:nth-of-type(2)"),
-	next = document.querySelector(".next"),
-	prev = document.querySelector(".prev");
+	dropdownFirst = document.querySelector(".dropdown__item:nth-of-type(2)");
 
 dropdownFirst.classList.add("current");
+dropdownFirst.setAttribute("aria-current", "page");
 
-paginations.forEach((e) => {
-	e.addEventListener("click", active);
+paginations.forEach((elem) => {
+	elem.addEventListener("click", active);
 });
 
-function active(e) {
-	let paginationsItem = e.target;
+function active(click) {
+	const paginationsItem = click.target,
+		next = document.querySelector(".next"),
+		prev = document.querySelector(".prev");
 
-	paginations.forEach((e) => {
-		e.classList.remove("active");
+	paginations.forEach((elem) => {
+		elem.classList.remove("active");
 	});
+
 	paginationsItem.classList.add("active");
 
 	if (paginationsItem == paginations[0]) {

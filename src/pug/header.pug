@@ -1,13 +1,13 @@
 header.main-header
-  a(href="#"): img.logo(src=require("../images/logo.svg"), width="154" height="64" alt="Глейси")
-  .toggle
+  a(href="#"): img.logo(src=require("../images/logo.svg") width="154" height="64" alt="Глейси")
+  button.toggle(aria-label="Меню")
     .toggle__line 
     .toggle__line 
     .toggle__line 
   nav.main-menu
     ul.main-menu__list
       li.main-menu__item 
-        a(href="#") Каталог 
+        button Каталог 
         ul.dropdown
           each item in ["Новинки", "Сливочное", "Щербеты", "Фруктовый лед", "Мелорин"]
             li.dropdown__item= item

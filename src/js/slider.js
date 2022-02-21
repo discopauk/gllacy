@@ -1,17 +1,17 @@
 const btns = document.querySelectorAll("#btn1, #btn2, #btn3"),
 	html = document.querySelector("html");
 
-btns.forEach((e) => {
-	e.addEventListener("click", slider);
+btns.forEach((elem) => {
+	elem.addEventListener("click", slider);
 });
 
-function slider(e) {
-	let btnsItem = e.target,
+function slider(btn) {
+	let btnsItem = btn.target,
 		slide = btnsItem.dataset.slide;
 
-	btns.forEach((e) => {
+	btns.forEach((btnElem) => {
 		html.className = "";
-		e.classList.remove("slider");
+		btnElem.classList.remove("slider");
 	});
 	btnsItem.classList.add("slider");
 	html.classList.add(slide);

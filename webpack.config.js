@@ -42,7 +42,6 @@ module.exports = (env, argv) => {
     },
 
     devServer: {
-      contentBase: "./dist",
       hot: true,
     },
     optimization: {

@@ -10,70 +10,65 @@
 @import "./catalog.scss";
 @import "./footer.scss";
 
-.slide1,
-.slide2,
-.slide3 {
-	background-position-x: center;
-	background-repeat: no-repeat;
+@for $i from 1 through 3 {
+  .slide#{$i} {
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-image: url(../images/bg#{$i}.png);
+    @include retina {
+      background-image: url(../images/bg#{$i}-2x.png);
+    }
+    .promo__text:nth-of-type(#{$i}) {
+      display: block;
+    }
+  }
 }
 .slide1 {
-	background-color: $teal;
-	background-image: url("../images/bg1.webp");
-	.promo__text:nth-of-type(1) {
-		display: block;
-	}
+  background-color: $teal;
 }
 .slide2 {
-	background-color: $blue;
-	background-image: url("../images/bg2.webp");
-	.promo__text:nth-of-type(2) {
-		display: block;
-	}
+  background-color: $blue;
 }
 .slide3 {
-	background-color: $ash;
-	background-image: url("../images/bg3.webp");
-	.promo__text:nth-of-type(3) {
-		display: block;
-	}
+  background-color: $ash;
 }
 .menuOpen {
-	.toggle {
-		left: 90vw;
-		top: 4vh;
-		z-index: 10;
-	}
-	.main-header {
-		position: fixed;
-		top: 0;
-		left: 0;
-		transform: translateX(0);
-		flex-direction: column;
-		width: 80vw;
-		height: 100vh;
-		background-color: $teal;
-		z-index: 10;
-		visibility: visible;
-		&__info {
-			top: 80vh;
-			right: 5vw;
-		}
-	}
-	.main-menu {
-		transform: translate(0);
-		margin: 0;
-		height: 60%;
-		&__list {
-			flex-direction: column;
-			justify-content: flex-start;
-			align-items: baseline;
-			height: 100%;
-		}
-		&__item {
-			margin-top: 16px;
-		}
-	}
-	.fade {
-		opacity: 1;
-	}
+  .toggle {
+    left: 90vw;
+    top: 4vh;
+    z-index: 10;
+  }
+  .main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(0);
+    flex-direction: column;
+    width: 80vw;
+    height: 100vh;
+    background-color: $teal;
+    z-index: 10;
+    visibility: visible;
+    &__info {
+      top: 80vh;
+      right: 5vw;
+    }
+  }
+  .main-menu {
+    transform: translate(0);
+    margin: 0;
+    height: 60%;
+    &__list {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: baseline;
+      height: 100%;
+    }
+    &__item {
+      margin-top: 16px;
+    }
+  }
+  .fade {
+    opacity: 1;
+  }
 }

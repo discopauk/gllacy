@@ -1,195 +1,209 @@
 .promo {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-end;
-	height: 70vh;
-	&__text {
-		display: none;
-		width: 100%;
-		margin-bottom: 35px;
-		font: {
-			weight: 700;
-			size: 3.75rem;
-		}
-		line-height: 1;
-		text-align: center;
-		text-shadow: 2px 2px 2px $black_a;
-	}
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 70vh;
+  &__text {
+    display: none;
+    width: 100%;
+    margin-bottom: 35px;
+    font: {
+      weight: 700;
+      size: 3.75rem;
+    }
+    line-height: 1;
+    text-align: center;
+    text-shadow: 2px 2px 2px $black_a;
+  }
 }
 .banner,
 .about__list,
 .blog__list {
-	@extend %grid-2;
+  @extend %grid-2;
 }
 .banner {
-	&__text {
-		@extend %title;
-		text-shadow: 2px 2px 2px $black;
-	}
-	&__description {
-		margin-bottom: 30px;
-		font-weight: 700;
-		font-size: 1.2rem;
-		text-shadow: 2px 2px 2px $black;
-	}
-	&__card {
-		@extend %card;
-		border-radius: 32px;
-		@extend %cover;
-		&:nth-of-type(1) {
-			background-image: url("../images/promo1.webp");
-		}
-		&:nth-of-type(2) {
-			background-image: url("../images/promo2.webp");
-		}
-		.btn_medium {
-			margin-left: auto;
-		}
-	}
+  &__text {
+    @extend %title;
+    text-shadow: 2px 2px 2px $black;
+  }
+  &__description {
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 2px $black;
+  }
+  &__card {
+    @extend %card;
+    border-radius: 32px;
+    @extend %cover;
+    @for $i from 1 through 2 {
+      &:nth-of-type(#{$i}) {
+        background-image: url(../images/banner#{$i}.jpg);
+        @include retina {
+          background-image: url(../images/banner#{$i}-2x.jpg);
+        }
+      }
+    }
+    .btn_medium {
+      margin-left: auto;
+    }
+  }
 }
 .about {
-	padding: 20px 22px;
-	background-image: url("../images/waffle.webp");
-	border-radius: 16px;
-	color: $black;
-	@extend %cover;
-	&__item {
-		display: flex;
-		p {
-			margin-top: 12px;
-		}
-		&:nth-of-type(1)::before,
-		&:nth-of-type(2)::before,
-		&:nth-of-type(3)::before,
-		&:nth-of-type(4)::before {
-			margin-right: 7px;
-			display: block;
-			width: 49px;
-			height: 49px;
-		}
-		&:nth-of-type(1)::before {
-			content: url(../images/ice-cream.svg);
-		}
-		&:nth-of-type(2)::before {
-			content: url(../images/eco.svg);
-		}
-		&:nth-of-type(3)::before {
-			content: url(../images/cow.svg);
-		}
-		&:nth-of-type(4)::before {
-			content: url(../images/thermometer.svg);
-		}
-	}
-	&__title {
-		margin-bottom: 13px;
-		font: {
-			weight: 500;
-			size: 1.5rem;
-		}
-	}
+  padding: 20px 22px;
+  background-image: url("../images/waffle.jpg");
+  border-radius: 16px;
+  color: $black;
+  @extend %cover;
+  @include retina {
+    background-image: url("../images/waffle-2.jpg");
+  }
+  &__item {
+    display: flex;
+    p {
+      margin-top: 12px;
+    }
+    &:nth-of-type(1)::before,
+    &:nth-of-type(2)::before,
+    &:nth-of-type(3)::before,
+    &:nth-of-type(4)::before {
+      margin-right: 7px;
+      display: block;
+      width: 49px;
+      height: 49px;
+    }
+    &:nth-of-type(1)::before {
+      content: url(../images/ice-cream.svg);
+    }
+    &:nth-of-type(2)::before {
+      content: url(../images/eco.svg);
+    }
+    &:nth-of-type(3)::before {
+      content: url(../images/cow.svg);
+    }
+    &:nth-of-type(4)::before {
+      content: url(../images/thermometer.svg);
+    }
+  }
+  &__title {
+    margin-bottom: 13px;
+    font: {
+      weight: 500;
+      size: 1.5rem;
+    }
+  }
 }
 .blog {
-	&__item {
-		position: relative;
-		@extend %card;
-		border-radius: 16px;
-		color: $black;
-		background-color: $text;
-		@extend %cover;
-		&:hover {
-			.blog__card__title {
-				color: $tomato;
-				border-bottom-color: $tomato;
-			}
-		}
-		&:nth-of-type(1) {
-			background-image: url("../images/blog.webp");
-		}
-		&:nth-of-type(2) {
-			border-image: url("../images/post.webp") 10 / 8px;
-		}
-	}
-	&__card {
-		&__new {
-			font-weight: 500;
-		}
-		&__title {
-			display: inline;
-			font: {
-				weight: 700;
-				size: 1.5rem;
-			}
-			border-bottom: 1px solid $black;
-			transition: color $tr, border-bottom-color $tr;
-		}
-	}
-	&__subscribe {
-		@extend %flex-c-sb;
-		flex-wrap: wrap;
-		padding: 20px 0;
-		p {
-			flex: 0 0 100%;
-			margin-bottom: 35px;
-		}
-		input {
-			flex: 0 0 70%;
-		}
-	}
+  &__item {
+    position: relative;
+    @extend %card;
+    border-radius: 16px;
+    color: $black;
+    background-color: $text;
+    @extend %cover;
+    &:hover {
+      .blog__card__title {
+        color: $tomato;
+        border-bottom-color: $tomato;
+      }
+    }
+    &:nth-of-type(1) {
+      background-image: url("../images/new.jpg");
+      @include retina {
+        background-image: url("../images/new-2x.jpg");
+      }
+    }
+    &:nth-of-type(2) {
+      border-image: url("../images/post.png") 10 / 8px;
+      @include retina {
+        border-image: url("../images/post-2x.png") 10 / 8px;
+      }
+    }
+  }
+  &__card {
+    &__new {
+      font-weight: 500;
+    }
+    &__title {
+      display: inline;
+      font: {
+        weight: 700;
+        size: 1.5rem;
+      }
+      border-bottom: 1px solid $black;
+      transition: color $tr, border-bottom-color $tr;
+    }
+  }
+  &__subscribe {
+    @extend %flex-c-sb;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    p {
+      flex: 0 0 100%;
+      margin-bottom: 35px;
+    }
+    input {
+      flex: 0 0 70%;
+    }
+  }
 }
 .map {
-	height: 100%;
-	max-height: 430px;
-	padding: 5% 25px 5% 0;
-	background-image: url("../images/map.webp");
-	@extend %cover;
-	&__info {
-		height: max-content;
-		margin-left: auto;
-		width: 100%;
-		max-width: 300px;
-		padding: 15px 25px;
-		color: $black;
-		background-color: $text;
-		border-radius: 16px;
-		box-shadow: $dropdown-shadow;
-	}
-	&__address,
-	&__tel {
-		margin-bottom: 16px;
-	}
+  height: 100%;
+  max-height: 430px;
+  padding: 5% 25px 5% 0;
+  background-image: url("../images/map.jpg");
+  @extend %cover;
+  @include retina {
+    background-image: url("../images/map-2x.jpg");
+  }
+  &__info {
+    height: max-content;
+    margin-left: auto;
+    width: 100%;
+    max-width: 300px;
+    padding: 15px 25px;
+    color: $black;
+    background-color: $text;
+    border-radius: 16px;
+    box-shadow: $dropdown-shadow;
+  }
+  &__address,
+  &__tel {
+    margin-bottom: 16px;
+  }
 }
 .request {
-	&__item {
-		margin-bottom: 17px;
-	}
-	&__wrap {
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		flex-direction: column;
-		padding: 25px;
-		width: 100%;
-		max-width: 480px;
-		background-color: $text;
-		color: $black;
-		z-index: 10;
-		border-radius: 16px;
-		box-shadow: $dropdown-shadow;
-		transform: scale(0);
-		will-change: transform;
-		.btn_medium {
-			margin-left: auto;
-		}
-		&.open {
-			animation: scale_in 0.6s ease forwards;
-			& ~ .fade {
-				opacity: 1;
-			}
-		}
-		&.closeModal {
-			animation: scale_out 0.6s ease forwards;
-		}
-	}
+  &__item {
+    margin-bottom: 17px;
+  }
+  &__wrap {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    flex-direction: column;
+    padding: 25px;
+    width: 100%;
+    max-width: 480px;
+    background-color: $text;
+    color: $black;
+    z-index: 10;
+    border-radius: 16px;
+    box-shadow: $dropdown-shadow;
+    transform: scale(0);
+    will-change: transform;
+    .btn_medium {
+      margin-left: auto;
+    }
+    &.open {
+      animation: scale_in 0.6s ease forwards;
+      & ~ .fade {
+        opacity: 1;
+      }
+    }
+    &.closeModal {
+      animation: scale_out 0.6s ease forwards;
+    }
+  }
 }

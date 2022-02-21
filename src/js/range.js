@@ -1,6 +1,6 @@
 const priceForm = document.querySelector(".price");
 
-priceForm.addEventListener("input", (e) => {
-	let price = e.target;
+priceForm.addEventListener("input", (controll) => {
+	let price = controll.target;
 	priceForm.style.setProperty(`--${price.id}`, +price.value);
 });

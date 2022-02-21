@@ -1,4 +1,5 @@
 section.filters
+  - let price_min = 100, price_max = 355, min = 0, max = 500
   include ../utils/crumbs.pug
   h2.title Сливочное мороженое
   form.filters__form
@@ -9,7 +10,6 @@ section.filters
         option(value="cheap") сначала недорогие
         option(value="expensive") сначала дорогие
         option(value="fatness") по жирности
-      - let price_min = 100, price_max = 355, min = 0, max = 500
     .price(style=`--price-min: ${price_min}; --price-max: ${price_max}; --min: ${min}; --max: ${max}`)
       label.price__title Цена: 
       output#output-min.output-min(for="price-min" style="--current: var(--price-min)")

@@ -1,18 +1,26 @@
-const services = ["login", "search", "cart"];
+const services = ["login", "search", "cart"],
+	toggle = document.querySelector(".toggle"),
+	dropdown = document.querySelector(".dropdown");
+
 services.forEach(openModal);
 
 function openModal(elem) {
-	let target = document.querySelector(`.${elem}`),
+	const target = document.querySelector(`.${elem}`),
 		targetWrap = document.querySelector(`.${elem}__wrap`);
 	target.addEventListener("click", () => {
 		targetWrap.classList.remove("closeModal");
 		targetWrap.classList.toggle("open");
 		target.classList.toggle("open");
+		targetWrap.querySelector("input").focus();
 	});
 }
 
-document.querySelector(".toggle").addEventListener("click", () => {
-	document.querySelector(".toggle").classList.toggle("active");
-	document.querySelector("body").classList.toggle("menuOpen");
+toggle.addEventListener("click", () => {
+	toggle.classList.toggle("active");
+	document.body.classList.toggle("menuOpen");
 });
+dropdown.addEventListener("click", () => {
+	dropdown.classList.add("open");
+});
+
 export { openModal };

@@ -6,8 +6,14 @@ table.table.cart__wrap
     - for (let x = 0; x < 2; x++)
       tr.row
         td.row__delite 
-          button.btn: img(src=require("../../images/cross-small.svg"), width="11" height="11" alt="Удалить")
-        td.row__image: img(src=require("../../images/ice1.webp"), width="33" height="33" alt="") 
+          button.btn(tabindex="-1"): img(src=require("../../images/cross-small.svg") width="11" height="11" alt="Удалить" loading="lazy")
+        td.row__image
+          picture 
+          source(type="image/webp" 
+            srcset=require(`../../images/ice${x+1}.webp`) + " 1x, " + require(`../../images/ice${x+1}-2x.webp`) + " 2x")
+          img(src=require(`../../images/ice${x+1}.jpg`) 
+            srcset=`../../images/ice${x+1}-2x.jpg 2x` 
+            width="33" height="33" alt="" loading="lazy")
         td.row__title Пломбир с апельсиновым джемом
         td.row__amount 1,5 кг х 
           span 200 руб.
@@ -16,4 +22,4 @@ table.table.cart__wrap
     tr
       td.table__total(colspan="5") Итого: 600 руб.
     tr
-      td(colspan="5"): button.btn_medium Оформить заказ
+      td(colspan="5"): button.btn_medium(tabindex="-1") Оформить заказ

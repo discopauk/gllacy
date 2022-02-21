@@ -4,8 +4,14 @@ section.catalog
   ul.catalog__list
     each item in catalogList
       li.catalog__card  
-        img.catalog__image(src=require(`../../images/ice${catalogList.indexOf(item)+1}.webp`), width="267" height="267" alt="" loading="lazy")
+        picture 
+          source(type="image/webp" 
+            srcset=require(`../../images/ice${catalogList.indexOf(item)+1}.webp`) + " 1x, " + require(`../../images/ice${catalogList.indexOf(item)+1}-2x.webp`) + " 2x")
+          img.catalog__image(src=require(`../../images/ice${catalogList.indexOf(item)+1}.jpg`) 
+            srcset=`../../images/ice${catalogList.indexOf(item)+1}-2x.jpg 2x` 
+            width="267" height="267", 
+            alt="" loading="lazy")
         p.catalog__price 310 &#8381;
           span /кг 
         h3.catalog__title= item
-        a.link(href="#") 
+        a.link(href="#" title=`${item}`) 

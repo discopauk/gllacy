@@ -3,17 +3,16 @@ button.login.btn_transparent(title="Вход")
   | Вход
 .login__wrap
   form.login__form(action="submit")
-    fieldset
-      ul.login__list 
-        li.login__item
-          label.hidden(for="email") 
-          input#email(type="email" placeholder="email@example.com" required)
-        li.login__item 
-          label.hidden(for="password") 
-          input#password(type="password" placeholder="******" required)
+    ul.login__list 
+      li.login__item
+        label.hidden(for="email") Email
+        input#email(type="email" placeholder="email@example.com" tabindex="-1" required)
+      li.login__item 
+        label.hidden(for="password") Пароль
+        input#password(type="password" placeholder="******" tabindex="-1" autocomplete="new-password" required)
   .login__info
-    button.btn_medium Войти
+    button.btn_medium(tabindex="-1") Войти
   .login__service
-    a(href="#") Забыли пароль?
+    a(href="#" tabindex="-1") Забыли пароль?
     br
-    a(href="№") Новая регистрация
+    a(href="№" tabindex="-1") Новая регистрация
