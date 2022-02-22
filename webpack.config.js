@@ -15,6 +15,9 @@ const plugins = [].concat(
         template: `./src/${page}.pug`,
         filename: `${page}.html`,
         chunks: [page],
+        minify: {
+          removeRedundantAttributes: false,
+        }
       })
   ),
   [
