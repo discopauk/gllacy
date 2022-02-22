@@ -11,7 +11,7 @@ function openModal(elem) {
 		targetWrap.classList.remove("closeModal");
 		targetWrap.classList.toggle("open");
 		target.classList.toggle("open");
-		targetWrap.querySelector("input").focus();
+		targetWrap.querySelector("input")?.focus();
 	});
 }
 

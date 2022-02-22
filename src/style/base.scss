@@ -12,6 +12,10 @@
 html {
   position: relative;
   background-color: $teal;
+  @include mobile-wide-only {
+    font-size: 13px;
+    overflow-x: hidden;
+  }
 }
 body {
   width: 100%;
@@ -20,6 +24,15 @@ body {
   color: $text;
   font: 400 16px/1.38 "Roboto", sans-serif;
   letter-spacing: normal;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
 address {
   font: {

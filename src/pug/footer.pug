@@ -6,7 +6,7 @@ footer.main-footer
   ul.main-footer__list
     each item in ["Для поставщиков", "О производстве", "Наши документы", "Экологические стандарты"]
       li.main-footer__item= item
-        a.link(href="#")
+        a.link(href="#" title= item)
   .copyright
     img(src=require("../images/logo-htmlacademy.svg") width="108" height="39" alt="HTML Academy" loading="lazy")
     p Сделано в HTML Academy &#169; 2019

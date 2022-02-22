@@ -22,6 +22,10 @@
 .about__list,
 .blog__list {
   @extend %grid-2;
+  @include mobile-wide-only {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+  }
 }
 .banner {
   &__text {
