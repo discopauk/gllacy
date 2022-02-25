@@ -87,8 +87,10 @@ textarea {
     size: 1.1rem;
   }
   transition: border-color $tr;
-  &:hover {
-    border-color: rgba(154, 154, 154, 0.52);
+  @include hover {
+    &:hover {
+      border-color: rgba(154, 154, 154, 0.52);
+    }
   }
   &:focus-visible {
     outline: none;
@@ -134,9 +136,13 @@ select {
   border-radius: 32px;
   transition: color $tr;
   cursor: pointer;
-  &:hover,
   &:active {
     color: $black;
+  }
+  @include hover {
+    &:hover {
+      color: $black;
+    }
   }
 }
 output {

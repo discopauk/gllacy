@@ -122,8 +122,10 @@
       background-color: $text;
       color: $black;
     }
-    &:not(.active):hover {
-      background-color: $text_a;
+    @include hover {
+      &:not(.active):hover {
+        background-color: $text_a;
+      }
     }
   }
 }
@@ -157,11 +159,13 @@
       width: 61px;
       height: 61px;
     }
-    &:hover {
-      background-color: $text_a;
-      .catalog__title {
-        color: $salmon;
-        border-bottom-color: $salmon;
+    @include hover {
+      &:hover {
+        background-color: $text_a;
+        .catalog__title {
+          color: $salmon;
+          border-bottom-color: $salmon;
+        }
       }
     }
   }

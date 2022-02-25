@@ -1,105 +1,107 @@
 .btn_transparent {
-	@extend %btn-transparent;
+  @extend %btn-transparent;
 }
 .btn_bd {
-	@extend %btn-transparent;
-	padding: 10px 25px;
-	border: 2px solid $text;
-	border-radius: 32px;
-	&:active {
-		box-shadow: inset 0 2px 1px #696969;
-	}
+  @extend %btn-transparent;
+  padding: 10px 25px;
+  border: 2px solid $text;
+  border-radius: 32px;
+  &:active {
+    box-shadow: inset 0 2px 1px #696969;
+  }
 }
 .btn_medium {
-	@extend %btn-gradient;
-	padding: 13px 25px;
-	font-size: 1.125rem;
+  @extend %btn-gradient;
+  padding: 13px 25px;
+  font-size: 1.125rem;
 }
 .btn_large {
-	@extend %btn-gradient;
-	padding: 15px 30px;
-	font-size: 2rem;
+  @extend %btn-gradient;
+  padding: 15px 30px;
+  font-size: 2rem;
 }
 .thumb {
-	position: absolute;
-	left: 0;
-	width: 100%;
-	max-width: 80px;
-	@extend %flex-c-sb;
-	&__item {
-		@extend %filter-bd;
-		border-radius: 50%;
-		background-color: transparent;
-		transition: background-color $tr;
-		&:hover {
-			background-color: $text_a;
-		}
-		&.slider,
-		&:active {
-			background-color: $text;
-		}
-	}
+  position: absolute;
+  left: 0;
+  width: 100%;
+  max-width: 80px;
+  @extend %flex-c-sb;
+  &__item {
+    @extend %filter-bd;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color $tr;
+    @include hover {
+      &:hover {
+        background-color: $text_a;
+      }
+    }
+    &.slider,
+    &:active {
+      background-color: $text;
+    }
+  }
 }
 .hit {
-	position: absolute;
+  position: absolute;
 }
 .title {
-	@extend %title;
+  @extend %title;
 }
 .close {
-	position: absolute;
-	top: 5%;
-	right: 5%;
-	background: transparent;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  background: transparent;
 }
 .crumbs {
-	display: flex;
-	&__item {
-		margin-right: 5px;
-		&:nth-child(1),
-		&:nth-child(2) {
-			a {
-				border-bottom: 1px solid $text_a;
-			}
-			&::after {
-				content: "\00BB";
-				margin-left: 5px;
-			}
-		}
-	}
+  display: flex;
+  &__item {
+    margin-right: 5px;
+    &:nth-child(1),
+    &:nth-child(2) {
+      a {
+        border-bottom: 1px solid $text_a;
+      }
+      &::after {
+        content: "\00BB";
+        margin-left: 5px;
+      }
+    }
+  }
 }
 .link {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 10;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
 }
 .hidden {
-	position: absolute;
-	white-space: nowrap;
-	width: 1px;
-	height: 1px;
-	overflow: hidden;
-	border: 0;
-	padding: 0;
-	margin: -1px;
-	clip: rect(0 0 0 0) {
-		path: inset(50%);
-	}
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  margin: -1px;
+  clip: rect(0 0 0 0) {
+    path: inset(50%);
+  }
 }
 .fade {
-	position: fixed;
-	top: 0;
-	right: 0;
-	width: 100vw;
-	height: 100vh;
-	background: $black_a;
-	opacity: 0;
-	transition: opacity $tr;
-	pointer-events: none;
-	z-index: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $black_a;
+  opacity: 0;
+  transition: opacity $tr;
+  pointer-events: none;
+  z-index: 0;
 }

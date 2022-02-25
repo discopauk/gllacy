@@ -14,9 +14,12 @@
   .slide#{$i} {
     background-position-x: center;
     background-repeat: no-repeat;
-    background-image: url(../images/bg#{$i}.png);
+    background-image: url(../images/bg#{$i}.jpg);
     @include retina {
-      background-image: url(../images/bg#{$i}-2x.png);
+      background-image: url(../images/bg#{$i}-2x.jpg);
+    }
+    @include mobile-wide-only {
+      background-size: auto;
     }
     .promo__text:nth-of-type(#{$i}) {
       display: block;

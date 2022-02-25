@@ -160,11 +160,13 @@
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
     }
-    &:hover {
-      background-color: $pink_pale;
-    }
     &:active {
       background-color: $salmon;
+    }
+    @include hover {
+      &:hover {
+        background-color: $pink_pale;
+      }
     }
   }
 }
@@ -206,13 +208,20 @@
     line-height: 1.13;
     border-radius: 16px;
     transition: background-color $tr, color $tr;
-    &:nth-of-type(1):hover,
     &:nth-of-type(1):focus-within,
     &.open {
       .dropdown {
         display: flex;
       }
     }
+    @include hover {
+      &:nth-of-type(1):hover {
+        .dropdown {
+          display: flex;
+        }
+      }
+    }
+
     &::after {
       content: "";
       display: block;
@@ -220,11 +229,19 @@
       height: 1px;
       background-color: $text_a;
     }
-    &.open,
-    &:hover,
+    &.open {
+      color: $black;
+      background-color: $text;
+    }
     &:active {
       color: $black;
       background-color: $text;
+    }
+    @include hover {
+      &:hover {
+        color: $black;
+        background-color: $text;
+      }
     }
     &:active {
       box-shadow: inset 0px 2px 1px 0 $grey-brown;

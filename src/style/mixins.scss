@@ -18,6 +18,11 @@
     @content;
   }
 }
+@mixin hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
 @mixin track {
   width: 100%;
   background: none;
@@ -56,10 +61,12 @@
   box-shadow: $box-shadow;
   background: linear-gradient(to top, $tomato, $orange);
   transition: background $tr, box-shadow $tr;
-  &:hover {
-    box-shadow: $box-shadow_hover;
-    background: linear-gradient(to top, $text_a, $text_a),
-      linear-gradient(to top, $tomato, $orange);
+  @include hover {
+    &:hover {
+      box-shadow: $box-shadow_hover;
+      background: linear-gradient(to top, $text_a, $text_a),
+        linear-gradient(to top, $tomato, $orange);
+    }
   }
   &:active {
     box-shadow: inset $box-shadow_active;
@@ -80,12 +87,20 @@
     fill: $text;
     transition: fill $tr;
   }
-  &:hover,
   &.open {
     color: $black;
     background-color: $text;
     svg {
       fill: $black;
+    }
+  }
+  @include hover {
+    &:hover {
+      color: $black;
+      background-color: $text;
+      svg {
+        fill: $black;
+      }
     }
   }
 }

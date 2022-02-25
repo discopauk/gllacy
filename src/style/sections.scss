@@ -107,14 +107,19 @@
     color: $black;
     background-color: $text;
     @extend %cover;
-    &:hover {
-      .blog__card__title {
-        color: $tomato;
-        border-bottom-color: $tomato;
+    @include hover {
+      &:hover {
+        .blog__card__title {
+          color: $tomato;
+          border-bottom-color: $tomato;
+        }
       }
     }
     &:nth-of-type(1) {
       background-image: url("../images/new.jpg");
+      @include mobile-wide-only {
+        background-size: cover;
+      }
       @include retina {
         background-image: url("../images/new-2x.jpg");
       }
